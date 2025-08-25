@@ -22,17 +22,17 @@ begin
   inherited Create(AOwner);
 
   Cursor := crHandPoint;
-  Height := 100;
+  Height := 70;
   Parent := TFmxObject(AOwner);
   Stroke.Kind := TBrushKind.None;
-  Width := 100;
+  Width := 70;
 
   LabDescricao := TLabel.Create(Self);
   with LabDescricao do
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Segoe UI Emoji';
-    Font.Size := 40;
+    Font.Size := 36;
     Font.Style := [];
     Parent := Self;
     StyledSettings := [];
