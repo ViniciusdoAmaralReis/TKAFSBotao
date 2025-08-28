@@ -65,14 +65,6 @@ end;
 
 destructor TKAFSBotao.Destroy;
 begin
-  if Assigned(imgImagem) then
-    FreeAndNil(imgImagem);
-
-  if Assigned(labDescricao) then
-    FreeAndNil(labDescricao);
-
-  if Assigned(btnBotao) then
-    FreeAndNil(btnBotao);
 
   inherited Destroy;
 end;
