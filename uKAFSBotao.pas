@@ -42,7 +42,7 @@ begin
   begin
     Align := TAlignLayout.Contents;
     Font.Family := 'Segoe UI Emoji';
-    Font.Size := 36;
+    Font.Size := 24;
     Font.Style := [];
     Parent := btnBotao;
     StyledSettings := [];
