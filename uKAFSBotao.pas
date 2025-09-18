@@ -20,47 +20,41 @@ implementation
 
 constructor TKAFSBotao.Create(AOwner: TComponent);
 begin
-  inherited Create(AOwner);
-
-  if AOwner is TControl then
-    Parent := TControl(AOwner);
-
-  Cursor := crHandPoint;
-  Height := 70;
-  Stroke.Kind := TBrushKind.None;
-  Width := 70;
-
-  btnBotao := TSpeedButton.Create(Self);
-  with btnBotao do
+  TThread.Synchronize(nil, procedure
   begin
-    Align := TAlignLayout.Contents;
-    Parent := Self;
-  end;
+    inherited Create(AOwner);
 
-  labDescricao := TLabel.Create(Self);
-  with labDescricao do
-  begin
-    Align := TAlignLayout.Contents;
-    Font.Family := 'Segoe UI Emoji';
-    Font.Size := 24;
-    Font.Style := [];
-    Parent := btnBotao;
-    StyledSettings := [];
-    TextSettings.HorzAlign := TTextAlign.Center;
-  end;
+    if AOwner is TControl then
+      Self.Parent := TControl(AOwner);
 
-  imgImagem := TImage.Create(Self);
-  with imgImagem do
-  begin
-    Align := TAlignLayout.Contents;
-    HitTest := False;
-    Margins.Bottom := 1;
-    Margins.Left := 1;
-    Margins.Right := 1;
-    Margins.Top := 1;
-    Parent := btnBotao;
-    WrapMode := TImageWrapMode.Fit;
-  end;
+    Self.Cursor := crHandPoint;
+    Self.Height := 50;
+    Self.Stroke.Kind := TBrushKind.None;
+    Self.Width := 50;
+
+    btnBotao := TSpeedButton.Create(Self);
+    btnBotao.Align := TAlignLayout.Contents;
+    btnBotao.Parent := Self;
+
+    labDescricao := TLabel.Create(Self);
+    labDescricao.Align := TAlignLayout.Contents;
+    labDescricao.Font.Family := 'Segoe UI Emoji';
+    labDescricao.Font.Size := 20;
+    labDescricao.Font.Style := [];
+    labDescricao.Parent := btnBotao;
+    labDescricao.StyledSettings := [];
+    labDescricao.TextSettings.HorzAlign := TTextAlign.Center;
+
+    imgImagem := TImage.Create(Self);
+    imgImagem.Align := TAlignLayout.Contents;
+    imgImagem.HitTest := False;
+    imgImagem.Margins.Bottom := 1;
+    imgImagem.Margins.Left := 1;
+    imgImagem.Margins.Right := 1;
+    imgImagem.Margins.Top := 1;
+    imgImagem.Parent := btnBotao;
+    imgImagem.WrapMode := TImageWrapMode.Fit;
+  end);
 end;
 
 destructor TKAFSBotao.Destroy;
